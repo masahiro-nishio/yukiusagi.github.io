@@ -1,24 +1,26 @@
-# grails について
+Grails
 
-## grails のインストール
+# Grails について
+
+## Grails のインストール
 
 1. 展開
 2. 環境変数の設定
-```
+```bat
 SET GRAILS_HOME=xxxx
 SET PATH=%PATH%;%GRAILS_HOME%\bin
 ```
 
-## grails アプリの作り方
+## Grails アプリの作り方
 
 ### プロジェクト作成
 `grails create-app <プロジェクト名>` でプロジェクトを作成する。
-```
+```bat
 > grails create-app test
 ```
 
-### grailsコンソール
-```
+### Grailsコンソール
+```bat
 > grails
 ```
 初回起動時は各種jarをダウンロードするため時間がかかる
@@ -40,7 +42,7 @@ grails> create-controller hello
 | Created src/test/groovy/test/HelloControllerSpec.groovy
 ```
 
-```
+```groovy:HelloController.groovy
 package test
 
 class HelloController {
@@ -50,8 +52,8 @@ class HelloController {
 ```
 
 ### コントローラ修正
-コントローラの修正
-```
+コントローラのソースを修正する。
+```groovy:HelloController.groovy
 package test
 
 class HelloController {
@@ -63,7 +65,7 @@ class HelloController {
 ```
 
 ### アプリケーションの起動
-
+`run-app` で作成したアプリケーションを起動する。
 ```
 grails> run-app
 ```
@@ -74,15 +76,15 @@ Grails application runnning at http://localhost:8080 in environment: development
 grails>
 ```
 
-[http://localhost:8080/hello/](http://localhost:8080/hello/) にアクセス
+[http://localhost:8080/hello/](http://localhost:8080/hello/) にアクセスする。
 
 ### アプリケーションの終了
 
-```
+```bat
 grails> stop-app
 ```
 
-```
+```bat
 | Shutting down application...
 | Application shutdown.
 grails>
@@ -104,18 +106,18 @@ grails> exit
 
 設定ファイルは `grails-app\conf\application.groovy` に作成
 
-```
+```groovy:application.groory
 sample.key='value'
 ```
 
 設定ファイルからの設定の取得は以下
-```groovy:application.groory
+```groovy
 println grailsApplication.config.sample.key
 ```
 
 ### 実行環境の取得方法
 
-```
+```groovy
 import grails.util.environment
 
 switch (Environment.current) {
